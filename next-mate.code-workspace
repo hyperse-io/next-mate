@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "root",
+      "path": ".",
+    },
+    {
       "name": "next-demo",
       "path": "packages/next-demo",
     },
@@ -24,10 +28,6 @@
       "name": "next-prisma",
       "path": "packages/next-prisma",
     },
-    {
-      "name": "root",
-      "path": ".",
-    },
   ],
   "extensions": {
     "recommendations": [
@@ -36,7 +36,6 @@
   },
   "settings": {
     "editor.formatOnSave": true,
-    "eslint.experimental.useFlatConfig": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
@@ -63,6 +62,12 @@
     "typescript.tsdk": "root/node_modules/typescript/lib",
     "[prisma]": {
       "editor.defaultFormatter": "Prisma.prisma",
+    },
+    "[json]": {
+      "editor.formatOnSave": false
+    },
+    "[jsonc]": {
+      "editor.formatOnSave": false
     },
     "i18n-ally.localesPaths": [
       "i18n"

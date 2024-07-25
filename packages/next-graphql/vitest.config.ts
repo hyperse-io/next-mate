@@ -1,26 +1,11 @@
-import tsConfigPaths from 'vite-tsconfig-paths';
-import { defineConfig } from 'vitest/config';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [tsConfigPaths()],
-  cacheDir: '../../.cache/vitest/next-graphql',
+  plugins: [tsconfigPaths()],
   test: {
-    // Makebe suite for local debug
-    testTimeout: 1000 * 30,
     globals: true,
-    environment: 'node',
-    passWithNoTests: true,
-    coverage: {
-      provider: 'istanbul',
-      reporter: ['json-summary', 'html'],
-      extension: ['js', 'jsx', 'ts', 'tsx'],
-    },
+    exclude: [...configDefaults.exclude],
     include: ['**/?(*.){test,spec}.?(c|m)[jt]s?(x)'],
-    exclude: [
-      '**/node_modules/**',
-      'dist/**',
-      '**/coverage/**',
-      '**/.{idea,git,cache,output,temp}/**',
-    ],
   },
 });
