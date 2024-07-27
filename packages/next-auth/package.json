@@ -54,7 +54,7 @@
     "@hyperse/eslint-config-hyperse": "^1.0.10",
     "@prisma/client": "^5.17.0",
     "@types/node": "20.14.12",
-    "eslint": "^9.7.0",
+    "eslint": "^9.8.0",
     "next": "^14.2.5",
     "npm-run-all": "4.1.5",
     "prisma": "^5.17.0",

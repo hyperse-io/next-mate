@@ -75,7 +75,7 @@ export async function authorizeCallbackHandler(
         Authorization: `Bearer ${tokens.accessToken}`,
       },
     });
-    const githubUser: GitHubUser = await githubUserResponse.json();
+    const githubUser = (await githubUserResponse.json()) as GitHubUser;
 
     const existingUsers = await lucia.getAuthorized({
       providerId: githubUser.id?.toString(),

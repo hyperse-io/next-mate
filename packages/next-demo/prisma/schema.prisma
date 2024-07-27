@@ -21,6 +21,7 @@ model User {
 	authorized Authorized[] @relation(name: "AuthorizedToUser")
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt
+	@@map("user")
 }
 model Authorized {
 	id String @id
@@ -32,6 +33,7 @@ model Authorized {
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt
 	@@index([userId])
+	@@map("authorized")
 }
 model Session {
 	id Int @id @default(autoincrement())
@@ -42,4 +44,5 @@ model Session {
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt
 	@@index([userId])
+	@@map("session")
 }

@@ -53,10 +53,15 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
 
-      # - name: Typecheck
-      #   working-directory: packages/next-auth
-      #   run: |
-      #     yarn typecheck
+      - name: generate
+        working-directory: packages/next-auth
+        run: |
+          yarn generate
+
+      - name: Typecheck
+        working-directory: packages/next-auth
+        run: |
+          yarn typecheck
 
       - name: Linter
         working-directory: packages/next-auth

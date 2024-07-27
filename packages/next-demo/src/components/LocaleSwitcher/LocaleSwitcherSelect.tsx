@@ -16,7 +16,7 @@ export function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
   const pathname = usePathname();
 
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+    const nextLocale = event.target.value as any;
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });

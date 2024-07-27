@@ -17,6 +17,8 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("user")
 }
 
 model Authorized {
@@ -31,12 +33,13 @@ model Authorized {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
+  @@map("authorized")
 }
 
 model Session {
   id        Int      @id @default(autoincrement())
   token     String   @unique
-  userId    String   
+  userId    String
   expiresAt DateTime @default(now())
   user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
 
@@ -44,4 +47,6 @@ model Session {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-}`;
+  @@map("session")
+}
+`;

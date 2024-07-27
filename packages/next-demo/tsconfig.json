@@ -4,14 +4,14 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "preserve",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "types": ["vitest/globals"],
     "paths": {
-      "@/*": ["./*"],
-      "@hyperse/next-core": ["../../../packages/next-core/src/index.js"],
-      "@hyperse/next-auth": ["../../../packages/next-auth/src/index.js"],
-      "@hyperse/next-env": ["../../../packages/next-env/src/index.js"],
-      "@hyperse/next-prisma": ["../../../packages/next-prisma/src/index.js"]
+      "@/*": ["./src/*"],
+      "@hyperse/next-core": ["../next-core/src/index.js"],
+      "@hyperse/next-auth": ["../next-auth/src/index.js"],
+      "@hyperse/next-env": ["../next-env/src/index.js"],
+      "@hyperse/next-prisma": ["../next-prisma/src/index.js"]
     },
     "plugins": [
       {
