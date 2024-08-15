@@ -83,6 +83,7 @@ async function getSchema(schemaString: string, schemaPath: string) {
       `prismaMerge failed to parse schema located at "${schemaPath}". Did you attempt to reference to a model without creating an alias? Remember you must define a "blank" alias model with only the "@id" field in your extended schemas otherwise we can't parse your schema.`,
       e
     );
+    return undefined;
   }
 }
 

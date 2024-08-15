@@ -52,7 +52,7 @@ export function createRequestBody(
   form.append('map', JSON.stringify(map));
 
   i = 0;
-  files.forEach((paths, file) => {
+  files.forEach((_paths, file) => {
     form.append(`${++i}`, file);
   });
   return form;
