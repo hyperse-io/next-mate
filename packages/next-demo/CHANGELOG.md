@@ -1,5 +1,14 @@
 # @hyperse/next-demo
 
+## 1.1.2
+
+### Patch Changes
+
+- [`8018e6a`](https://github.com/hyperse-io/next-mate/commit/8018e6ac002fd1f59ecaecda79b4bcabca696276) Thanks [@hyperse-net](https://github.com/hyperse-net)! - fix prisma issue
+
+- Updated dependencies [[`8018e6a`](https://github.com/hyperse-io/next-mate/commit/8018e6ac002fd1f59ecaecda79b4bcabca696276)]:
+  - @hyperse/next-prisma@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes
