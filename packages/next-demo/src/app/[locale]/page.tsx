@@ -6,7 +6,7 @@ import { PostList } from '@/app/[locale]/post/components/PostList';
 import { PostListItem } from '@/app/[locale]/post/components/PostListItem';
 import { ProcessEnv } from '@/components/ProcessEnv/ProcessEnv';
 import { rsc } from '@/server/rsc';
-import { HydrateClient } from '@hyperse/next-core';
+import { HydrateClient } from '@xpro-js/next-core';
 
 function PostListSkeleton() {
   return (

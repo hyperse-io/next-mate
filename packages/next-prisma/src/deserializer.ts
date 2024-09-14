@@ -31,9 +31,15 @@ const renderAttribute = (field: Field) => {
         return `@default(${value})`;
       // haven't yet found where this is actually useful — will get back on that
       if (typeof value === 'object') {
+        // handle { name: 'uuid(4)', args: [] }
+        if (/\(.*\)/.test(value.name)) {
+          return `@default(${value.name})`;
+        }
+        // @default(dbgenerated("uuid_generate_v4()"))
         // @default(dbgenerated("next_id()")) render to be @default(dbgenerated(next_id())), it cause error
-        if (value.name === 'dbgenerated')
+        if (value.name === 'dbgenerated') {
           return `@default(${value.name}("${value.args}"))`;
+        }
         return `@default(${value.name}(${value.args}))`;
       }
 

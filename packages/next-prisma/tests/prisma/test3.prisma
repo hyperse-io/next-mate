@@ -1,0 +1,38 @@
+model User {
+    id          String       @id @default(dbgenerated("uuid_generate_v4()"))
+    username    String       @unique
+    email       String?      @unique
+    authSession Session[]    @relation(name: "SessionToUser")
+    authorized  Authorized[] @relation(name: "AuthorizedToUser")
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+
+    @@map("user")
+}
+
+model Authorized {
+    id             String   @id @default(uuid())
+    userId         String
+    hashedPassword String?
+    providerId     String?
+    providerMethod String
+    user           User     @relation(name: "AuthorizedToUser", fields: [userId], references: [id], onDelete: Cascade)
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@index([userId])
+    @@map("authorized")
+}
+
+model Session {
+    id        Int      @id @default(autoincrement())
+    token     String   @unique
+    userId    String
+    expiresAt DateTime @default(now())
+    user      User     @relation(name: "SessionToUser", fields: [userId], references: [id], onDelete: Cascade)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
+    @@map("session")
+}

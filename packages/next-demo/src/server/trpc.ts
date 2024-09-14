@@ -8,8 +8,8 @@
  * @see https://trpc.io/docs/v10/procedures
  */
 import { ZodError } from 'zod';
-import { transformer } from '@hyperse/next-core';
 import { initTRPC, TRPCError } from '@trpc/server';
+import { transformer } from '@xpro-js/next-core';
 import { type Context } from './context';
 
 const t = initTRPC.context<Context>().create({
@@ -55,6 +55,8 @@ export const middleware = t.middleware;
  * @see https://trpc.io/docs/v10/merging-routers
  */
 export const mergeRouters = t.mergeRouters;
+
+export const createCallerFactory = t.createCallerFactory;
 
 /**
  * Create an private procedure

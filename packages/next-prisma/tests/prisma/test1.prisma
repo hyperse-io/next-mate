@@ -5,6 +5,8 @@ model User {
 }
 
 model Post {
-    id   String @unique
-    name String
+    id        String   @unique
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
 }

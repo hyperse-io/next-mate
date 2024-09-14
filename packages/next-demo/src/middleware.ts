@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
-import { createAuthMiddleware } from '@hyperse/next-auth';
+import { createAuthMiddleware } from '@xpro-js/next-auth';
 import { env } from './config/env';
 import { locales, pathnames } from './navigation';
 

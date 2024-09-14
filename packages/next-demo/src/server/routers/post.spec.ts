@@ -3,13 +3,15 @@
  */
 import { type inferProcedureInput } from '@trpc/server';
 import { createContextInner } from '../context';
+import { createCallerFactory } from '../trpc';
 import { type AppRouter, appRouter } from './_app';
 
 test('add and get post', async () => {
   const ctx = await createContextInner({
     session: null,
   });
-  const caller = appRouter.createCaller(ctx);
+  const callerFactory = createCallerFactory(appRouter);
+  const caller = callerFactory(ctx);
 
   const input: inferProcedureInput<AppRouter['post']['add']> = {
     text: 'hello test',
