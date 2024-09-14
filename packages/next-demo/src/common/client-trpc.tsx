@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import type { AppRouter } from '@/server/routers/_app';
+import { transformer } from '@hyperse/next-core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink, loggerLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
-import { transformer } from '@xpro-js/next-core';
 
 export const trpc = createTRPCReact<AppRouter>({
   //   overrides: {

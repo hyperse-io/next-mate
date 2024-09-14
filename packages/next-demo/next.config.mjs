@@ -5,7 +5,7 @@ import bundleAnalyzer from '@next/bundle-analyzer';
 
 /**
  * The order of plugins
- * @type {import("@xpro-js/next-env").NextConfigPlugin}
+ * @type {import("@hyperse/next-env").NextConfigPlugin}
  */
 const plugins = [];
 

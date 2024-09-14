@@ -8,8 +8,8 @@
  * @see https://trpc.io/docs/v10/procedures
  */
 import { ZodError } from 'zod';
+import { transformer } from '@hyperse/next-core';
 import { initTRPC, TRPCError } from '@trpc/server';
-import { transformer } from '@xpro-js/next-core';
 import { type Context } from './context';
 
 const t = initTRPC.context<Context>().create({

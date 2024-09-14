@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server';
 import { auth } from '@/auth/lucia';
 import { env } from '@/config/env';
-import { logoutHandler } from '@xpro-js/next-auth';
+import { logoutHandler } from '@hyperse/next-auth';
 
 const handleLogout = (request: NextRequest) => {
   return logoutHandler(auth, request, {

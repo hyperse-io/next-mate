@@ -6,7 +6,7 @@ import {
   Lucia,
   PrismaAdapter,
   TimeSpan,
-} from '@xpro-js/next-auth';
+} from '@hyperse/next-auth';
 
 export const auth = new Lucia(new PrismaAdapter(prismaClient), {
   sessionExpiresIn: new TimeSpan(1, 'd'),
