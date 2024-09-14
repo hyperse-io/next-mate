@@ -55,26 +55,26 @@
   "devDependencies": {
     "@hyperse/eslint-config-hyperse": "^1.1.3",
     "@tanstack/query-core": "^5.x",
-    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query": "^5.56.2",
     "@trpc/server": "next",
-    "@types/node": "22.3.0",
-    "eslint": "^9.9.0",
-    "next": "^14.2.5",
+    "@types/node": "22.5.5",
+    "eslint": "^9.10.0",
+    "next": "^14.2.11",
     "npm-run-all": "4.1.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rimraf": "6.0.1",
-    "rollup": "^4.20.0",
+    "rollup": "^4.21.3",
     "rollup-plugin-preserve-directives": "0.4.0",
-    "typescript": "5.5.4",
+    "typescript": "5.6.2",
     "vite-tsconfig-paths": "5.0.1",
-    "vitest": "2.0.5"
+    "vitest": "2.1.1"
   },
   "peerDependencies": {
     "@tanstack/query-core": "^5.x",
-    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query": "^5.56.2",
     "@trpc/server": "*",
-    "next": "^14.2.5",
+    "next": "^14.2.11",
     "react": "^18.3.1"
   },
   "engines": {
