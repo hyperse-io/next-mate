@@ -1,5 +1,11 @@
 # @hyperse/next-prisma
 
+## 1.1.3
+
+### Patch Changes
+
+- [`742ee1f`](https://github.com/hyperse-io/next-mate/commit/742ee1f5cb6b03ac4e17c85bff083c28248be458) Thanks [@hyperse-net](https://github.com/hyperse-net)! - bump version
+
 ## 1.1.2
 
 ### Patch Changes
