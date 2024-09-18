@@ -47,8 +47,8 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "arctic": "1.9.2",
-    "oslo": "1.2.1"
+    "arctic": "^1.9.2",
+    "oslo": "^1.2.1"
   },
   "devDependencies": {
     "@hyperse/eslint-config-hyperse": "^1.1.3",

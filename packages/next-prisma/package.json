@@ -42,8 +42,8 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@prisma/generator-helper": "5.19.1",
-    "@prisma/internals": "5.19.1",
+    "@prisma/generator-helper": "^5.19.1",
+    "@prisma/internals": "^5.19.1",
     "glob": "^11.0.0"
   },
   "devDependencies": {
