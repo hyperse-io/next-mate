@@ -1,5 +1,16 @@
 # @hyperse/next-demo
 
+## 1.1.5
+
+### Patch Changes
+
+- [`8f6409a`](https://github.com/hyperse-io/next-mate/commit/8f6409ae1fd154f9936d70f310cc32fa5f6244e7) Thanks [@hyperse-net](https://github.com/hyperse-net)! - upgrade next to 15+, BREAKCHANGE
+
+- Updated dependencies [[`8f6409a`](https://github.com/hyperse-io/next-mate/commit/8f6409ae1fd154f9936d70f310cc32fa5f6244e7)]:
+  - @hyperse/next-auth@1.1.4
+  - @hyperse/next-core@1.1.3
+  - @hyperse/next-env@1.1.3
+
 ## 1.1.4
 
 ### Patch Changes
