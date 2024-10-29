@@ -5,6 +5,7 @@ import { prisma } from './prisma';
 
 interface CreateContextInnerOptions {
   session: IGetSessionReturn;
+  validateSession: () => Promise<IGetSessionReturn>;
 }
 
 /**
@@ -15,6 +16,7 @@ export async function createContextInner(opts: CreateContextInnerOptions) {
   return {
     prisma,
     session: opts.session,
+    validateSession: opts.validateSession,
   };
 }
 
@@ -30,9 +32,15 @@ export async function createContext(
 > {
   // RSC: for API-response caching see https://trpc.io/docs/caching
   const sessionResult = await getSession(auth);
-  const contextInner = await createContextInner({
+  const innerOpts = {
     session: sessionResult,
-  });
+    validateSession: async () => {
+      const sessionResult = await getSession(auth);
+      innerOpts.session = sessionResult;
+      return sessionResult;
+    },
+  };
+  const contextInner = await createContextInner(innerOpts);
   return {
     ...contextInner,
     ...opts,

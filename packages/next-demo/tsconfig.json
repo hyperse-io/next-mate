@@ -5,18 +5,35 @@
     "moduleResolution": "Node",
     "jsx": "preserve",
     "baseUrl": "./",
-    "types": ["vitest/globals"],
+    "types": [
+      "vitest/globals"
+    ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@hyperse/next-core": ["../next-core/src/index.js"],
-      "@hyperse/next-auth": ["../next-auth/src/index.js"],
-      "@hyperse/next-env": ["../next-env/src/index.js"],
-      "@hyperse/next-prisma": ["../next-prisma/src/index.js"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@hyperse/next-core": [
+        "../next-core/src/index.js"
+      ],
+      "@hyperse/next-auth": [
+        "../next-auth/src/index.js"
+      ],
+      "@hyperse/next-env": [
+        "../next-env/src/index.js"
+      ],
+      "@hyperse/next-prisma": [
+        "../next-prisma/src/index.js"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ]
   },
   "include": [
@@ -31,5 +48,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", ".next"]
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
 }

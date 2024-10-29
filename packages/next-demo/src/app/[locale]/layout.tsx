@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from 'react';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { PublicEnvScript } from 'next-runtime-env';
 import { ClientProvider } from '@/common/client-trpc';
 import { Navigation } from '@/components/Navigation/Navigation';
@@ -10,13 +10,14 @@ import './globals.css';
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: PropsWithChildren<PageProps>) {
+  const { locale } = await params;
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as never)) notFound();
 
   // https://next-intl-docs.vercel.app/blog/next-intl-3-0#static-rendering-of-server-components
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   // Receive messages provided in `i18n.ts`
   const messages = await getMessages();

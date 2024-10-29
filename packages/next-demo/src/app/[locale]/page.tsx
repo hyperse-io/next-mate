@@ -1,6 +1,5 @@
 import { Suspense, use } from 'react';
-import { useTranslations } from 'next-intl';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { CreatePostForm } from '@/app/[locale]/post/components/CreatePostForm';
 import { PostList } from '@/app/[locale]/post/components/PostList';
 import { PostListItem } from '@/app/[locale]/post/components/PostListItem';
@@ -34,17 +33,22 @@ function PostListRSC() {
   );
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps) {
-  const t = await getTranslations({ locale, namespace: 'IndexPage' });
+export async function generateMetadata(props: PageProps) {
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: 'IndexPage',
+  });
   return {
     title: t('title'),
   };
 }
 
-export default function Page({ params: { locale } }: PageProps) {
-  unstable_setRequestLocale(locale);
+export default async function Page(props: PageProps) {
+  const params = await props.params;
+  setRequestLocale(params.locale);
 
-  const t = useTranslations('IndexPage');
+  const t = await getTranslations('IndexPage');
   // Once the request locale is set, you
   // can call hooks from `next-intl`
 

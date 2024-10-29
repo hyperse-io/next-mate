@@ -1,5 +1,5 @@
 declare type PageProps<Param = object> = {
-  params: { locale: string } & Param;
+  params: Promise<{ locale: string } & Param>;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 

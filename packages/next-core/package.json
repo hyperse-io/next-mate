@@ -74,7 +74,7 @@
     "@tanstack/query-core": "^5.x",
     "@tanstack/react-query": "^5.59.16",
     "@trpc/server": "*",
-    "next": "*",
+    "next": "^15.0.1",
     "react": ">=18.2.0"
   },
   "engines": {

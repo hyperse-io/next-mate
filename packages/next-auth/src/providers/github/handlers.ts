@@ -28,9 +28,9 @@ export async function authorizeHandler(
   }
 
   const state = generateState();
-  const url = await provider.createAuthorizationURL(state);
+  const url = await provider.createAuthorizationURL(state, []);
 
-  cookies().set('github_oauth_state', state, {
+  (await cookies()).set('github_oauth_state', state, {
     path: '/',
     httpOnly: true,
     maxAge: 60 * 10, // 10 minutes
@@ -61,7 +61,8 @@ export async function authorizeCallbackHandler(
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
-  const storedState = cookies().get('github_oauth_state')?.value ?? null;
+  const storedState =
+    (await cookies()).get('github_oauth_state')?.value ?? null;
   if (!code || !state || !storedState || state !== storedState) {
     return new NextResponse(null, {
       status: 400,

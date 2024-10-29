@@ -2,6 +2,7 @@ import withNextIntl from 'next-intl/plugin';
 import { z } from 'zod';
 import { getNextConfig, getNextConfigEnv } from '@hyperse/next-env';
 import bundleAnalyzer from '@next/bundle-analyzer';
+import { envSchema } from './src/config/envSchema.mjs';
 
 /**
  * The order of plugins
@@ -15,21 +16,19 @@ plugins.push(
     enabled: process.env.ANALYZE === 'true',
   })
 );
+const env = envSchema.extend({
+  NEXT_BUILD_ENV_OUTPUT: z
+    .enum(['standalone', 'export'], {
+      description:
+        'For standalone mode: https://nextjs.org/docs/app/api-reference/next-config-js/output',
+    })
+    .optional(),
+});
 
 // We use a custom env to validate the build env
-const buildEnv = getNextConfigEnv(
-  z.object({
-    NEXT_BUILD_ENV_OUTPUT: z
-      .enum(['standalone', 'export'], {
-        description:
-          'For standalone mode: https://nextjs.org/docs/app/api-reference/next-config-js/output',
-      })
-      .optional(),
-  }),
-  {
-    isProd: process.env.ANALYZE === 'production',
-  }
-);
+const buildEnv = getNextConfigEnv(env, {
+  isProd: process.env.ANALYZE === 'production',
+});
 
 /**
  * Don't be scared of the generics here.
@@ -46,11 +45,8 @@ const config = {
       allowedForwardedHosts: ['www.domain.com', 'localhost'],
       allowedOrigins: ['www.domain.com', 'localhost'],
     },
-    serverComponentsExternalPackages: [
-      '@node-rs/argon2',
-      '@node-rs/bcrypt-darwin-arm64',
-    ],
   },
+  serverExternalPackages: ['@node-rs/argon2', '@node-rs/bcrypt-darwin-arm64'],
   /** We run eslint as a separate task in CI */
   eslint: { ignoreDuringBuilds: !!process.env.CI },
   // transpilePackages: [

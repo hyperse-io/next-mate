@@ -28,7 +28,7 @@ export async function logoutHandler(
   await lucia.invalidateSession(session.token);
 
   const sessionCookie = lucia.createBlankSessionCookie();
-  cookies().set(
+  (await cookies()).set(
     sessionCookie.name,
     sessionCookie.value,
     sessionCookie.attributes

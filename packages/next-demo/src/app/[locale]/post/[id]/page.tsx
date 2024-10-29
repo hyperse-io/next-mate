@@ -5,7 +5,8 @@ import { graphqlRsc, rsc } from '@/server/rsc';
 import { HydrateClient } from '@hyperse/next-core';
 
 export default async function Page(props: PageProps<{ id: string }>) {
-  const post = await rsc.post.byId.fetch({ id: props.params.id });
+  const params = await props.params;
+  const post = await rsc.post.byId.fetch({ id: params.id });
 
   if (!post) {
     return notFound();
@@ -19,7 +20,7 @@ export default async function Page(props: PageProps<{ id: string }>) {
         <article className="prose overflow-hidden rounded-md bg-white p-4 shadow-md">
           <h1>
             {post.title} : ID:{data?.me?.identifier}: locale:
-            {props.params.locale}
+            {params.locale}
           </h1>
 
           {post.text.split('\n').map((line, i) => (

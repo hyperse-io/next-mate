@@ -9,7 +9,10 @@ export const appRouter = router({
   healthcheck: publicProcedure.query(() => 'yay!'),
   post: postRouter,
   auth: authRouter,
-  whoami: publicProcedure.query(({ ctx }) => ctx.session?.user || null),
+  whoami: publicProcedure.query(async ({ ctx }) => {
+    const sessionResult = await ctx.validateSession?.();
+    return (sessionResult && ctx.session?.user) || null;
+  }),
   secret: privateProcedure.query(() => 'cow level'),
 });
 

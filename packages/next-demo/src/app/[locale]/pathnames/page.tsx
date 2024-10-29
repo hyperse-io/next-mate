@@ -1,16 +1,12 @@
-import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { LayoutPage } from '@/components/LayoutPage/LayoutPage';
 
-type Props = {
-  params: { locale: string };
-};
-
-export default function PathnamesPage({ params: { locale } }: Props) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(params.locale);
 
-  const t = useTranslations('PathnamesPage');
+  const t = await getTranslations('PathnamesPage');
 
   return (
     <LayoutPage title={t('title')}>

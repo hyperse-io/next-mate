@@ -59,7 +59,7 @@
     "vitest": "2.1.4"
   },
   "peerDependencies": {
-    "next": "*"
+    "next": "^15.0.1"
   },
   "engines": {
     "node": ">=18.0.0"

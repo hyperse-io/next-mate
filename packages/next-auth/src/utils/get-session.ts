@@ -7,8 +7,13 @@ export type IGetSessionReturn = {
 } | null;
 
 export const getSession = async (lucia: Lucia): Promise<IGetSessionReturn> => {
-  const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
+  const sessionId =
+    (await cookies()).get(lucia.sessionCookieName)?.value ?? null;
   if (!sessionId) return null;
   const { session, user } = await lucia.validateSession(sessionId);
-  return { session, user };
+
+  return {
+    session,
+    user,
+  };
 };

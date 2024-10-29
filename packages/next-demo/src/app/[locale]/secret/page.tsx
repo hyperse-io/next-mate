@@ -1,9 +1,12 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { LayoutPage } from '@/components/LayoutPage/LayoutPage';
 import { LogoutButton } from '@/components/LogoutButton/LogoutButton';
 import { rsc } from '@/server/rsc';
 
-export default async function Page() {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
+  setRequestLocale(params.locale);
+
   const t = await getTranslations('Secret');
   const user = await rsc.whoami.fetch();
 

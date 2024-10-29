@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import { createContext } from '@/server/context';
 import { appRouter } from '@/server/routers/_app';
 import { createTRPCNextLayout, transformer } from '@hyperse/next-core';
@@ -6,8 +5,24 @@ import { cacheExchange, createClient, fetchExchange } from '@urql/core';
 import { registerUrql } from '@urql/next/rsc';
 import 'server-only';
 
+const makeClient = () => {
+  return createClient({
+    url: 'http://localhost:3001/shop-api',
+    exchanges: [cacheExchange, fetchExchange],
+  });
+};
+
+const { getClient } = registerUrql(makeClient);
+
 /**
+ * Run in server side only
+ * don't supports `cookies()`
+ */
+export const graphqlRsc = getClient();
+/**
+ * Run in server side only
  * React server components, only can be run in server side
+ * don't supports `cookies()`
  */
 export const rsc = createTRPCNextLayout({
   router: appRouter,
@@ -16,23 +31,3 @@ export const rsc = createTRPCNextLayout({
     return createContext({});
   },
 });
-
-const makeClient = () => {
-  return createClient({
-    url: 'http://localhost:3001/shop-api',
-    exchanges: [cacheExchange, fetchExchange],
-    fetchOptions: () => {
-      const allCookies = cookies().getAll();
-      console.log('allCookies:', allCookies);
-      const token = `f7993461ca44c7bf3adab00adfeb505c5c2bf3cb6b6faac2156a866738b21803`;
-      return {
-        // cache: 'no-store',
-        headers: { authorization: token ? `Bearer ${token}` : '' },
-      };
-    },
-  });
-};
-
-const { getClient } = registerUrql(makeClient);
-
-export const graphqlRsc = getClient();

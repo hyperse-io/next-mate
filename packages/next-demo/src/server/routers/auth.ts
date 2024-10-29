@@ -37,7 +37,6 @@ export const authRouter = router({
       // });
     }
   }),
-
   signIn: publicProcedure.input(loginSchema).mutation(async ({ input }) => {
     const { password, username } = input;
     try {
