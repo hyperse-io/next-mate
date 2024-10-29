@@ -1,5 +1,17 @@
 # @hyperse/next-demo
 
+## 1.1.4
+
+### Patch Changes
+
+- [`43bf536`](https://github.com/hyperse-io/next-mate/commit/43bf536d2f1a4579a1dad803987f2c21fe173141) Thanks [@hyperse-net](https://github.com/hyperse-net)! - bump version & move `next` to \*
+
+- Updated dependencies [[`43bf536`](https://github.com/hyperse-io/next-mate/commit/43bf536d2f1a4579a1dad803987f2c21fe173141)]:
+  - @hyperse/next-prisma@1.1.4
+  - @hyperse/next-auth@1.1.3
+  - @hyperse/next-core@1.1.2
+  - @hyperse/next-env@1.1.2
+
 ## 1.1.3
 
 ### Patch Changes
