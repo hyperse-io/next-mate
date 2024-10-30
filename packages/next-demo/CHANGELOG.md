@@ -1,5 +1,12 @@
 # @hyperse/next-demo
 
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [[`e00dc22`](https://github.com/hyperse-io/next-mate/commit/e00dc22904c4e4bbdc3455024a0ea8cd771d7986)]:
+  - @hyperse/next-auth@1.1.5
+
 ## 1.1.5
 
 ### Patch Changes

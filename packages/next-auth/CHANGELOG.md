@@ -1,5 +1,11 @@
 # @hyperse/next-auth
 
+## 1.1.5
+
+### Patch Changes
+
+- [`e00dc22`](https://github.com/hyperse-io/next-mate/commit/e00dc22904c4e4bbdc3455024a0ea8cd771d7986) Thanks [@hyperse-net](https://github.com/hyperse-net)! - bug fix for next-auth
+
 ## 1.1.4
 
 ### Patch Changes
