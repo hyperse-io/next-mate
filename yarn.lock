@@ -2288,6 +2288,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hyperse/next-config@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@hyperse/next-config@npm:1.0.1"
+  dependencies:
+    picocolors: "npm:^1.1.1"
+    zod: "npm:^3.25.56"
+  peerDependencies:
+    next: ^15.0.1
+  checksum: 10c0/cdcf548d5f4df3ed3a8aa86ba5a3385ae845386ee5d3306758c56ea1a28f0341f5a880622941ba6f8e87da0af230d136b184689842731ddf97ad840327eb29fa
+  languageName: node
+  linkType: hard
+
 "@hyperse/next-core@workspace:*, @hyperse/next-core@workspace:packages/next-core":
   version: 0.0.0-use.local
   resolution: "@hyperse/next-core@workspace:packages/next-core"
@@ -2332,8 +2344,8 @@ __metadata:
     "@hookform/resolvers": "npm:3.9.1"
     "@hyperse/eslint-config-hyperse": "npm:^1.2.6"
     "@hyperse/next-auth": "workspace:*"
+    "@hyperse/next-config": "npm:^1.0.1"
     "@hyperse/next-core": "workspace:*"
-    "@hyperse/next-env": "workspace:*"
     "@hyperse/next-prisma": "workspace:*"
     "@hyperse/tailwind-layer": "npm:^1.0.5"
     "@hyperse/ts-node-paths": "npm:^1.0.11"
@@ -2381,29 +2393,6 @@ __metadata:
     vite-tsconfig-paths: "npm:5.0.1"
     vitest: "npm:^2.1.4"
     zod: "npm:^3.23.8"
-  languageName: unknown
-  linkType: soft
-
-"@hyperse/next-env@workspace:*, @hyperse/next-env@workspace:packages/next-env":
-  version: 0.0.0-use.local
-  resolution: "@hyperse/next-env@workspace:packages/next-env"
-  dependencies:
-    "@hyperse/eslint-config-hyperse": "npm:^1.2.6"
-    "@types/node": "npm:22.8.2"
-    eslint: "npm:^9.13.0"
-    next: "npm:^15.0.1"
-    npm-run-all: "npm:4.1.5"
-    picocolors: "npm:^1.1.1"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
-    rimraf: "npm:6.0.1"
-    typescript: "npm:5.6.3"
-    vite-tsconfig-paths: "npm:5.0.1"
-    vitest: "npm:2.1.4"
-    zod: "npm:^3.23.8"
-  peerDependencies:
-    next: ^15.0.1
-    zod: ^3.23.8
   languageName: unknown
   linkType: soft
 
@@ -14496,10 +14485,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.23.8":
-  version: 3.23.8
-  resolution: "zod@npm:3.23.8"
-  checksum: 10c0/8f14c87d6b1b53c944c25ce7a28616896319d95bc46a9660fe441adc0ed0a81253b02b5abdaeffedbeb23bdd25a0bf1c29d2c12dd919aef6447652dd295e3e69
+"zod@npm:^3.23.8, zod@npm:^3.25.56":
+  version: 3.25.56
+  resolution: "zod@npm:3.25.56"
+  checksum: 10c0/3800f01d4b1df932b91354eb1e648f69cc7e5561549e6d2bf83827d930a5f33bbf92926099445f6fc1ebb64ca9c6513ef9ae5e5409cfef6325f354bcf6fc9a24
   languageName: node
   linkType: hard
 

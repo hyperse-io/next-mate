@@ -1,12 +1,12 @@
 import withNextIntl from 'next-intl/plugin';
 import { z } from 'zod';
-import { getNextConfig, getNextConfigEnv } from '@hyperse/next-env';
+import { createNextConfig, createNextConfigEnv } from '@hyperse/next-config';
 import bundleAnalyzer from '@next/bundle-analyzer';
 import { envSchema } from './src/config/envSchema.mjs';
 
 /**
  * The order of plugins
- * @type {import("@hyperse/next-env").NextConfigPlugin}
+ * @type {import("@hyperse/next-config").NextConfigPlugin}
  */
 const plugins = [];
 
@@ -26,7 +26,7 @@ const env = envSchema.extend({
 });
 
 // We use a custom env to validate the build env
-const buildEnv = getNextConfigEnv(env, {
+const buildEnv = createNextConfigEnv(env, {
   isProd: process.env.ANALYZE === 'production',
 });
 
@@ -52,10 +52,8 @@ const config = {
   // transpilePackages: [
   //   '@hyperse/next-auth',
   //   '@hyperse/next-core',
-  //   '@hyperse/next-env',
+  //   '@hyperse/next-config',
   // ],
 };
 
-export default getNextConfig(
-  plugins.reduce((config, plugin) => plugin(config), config)
-);
+export default createNextConfig(config, plugins);
